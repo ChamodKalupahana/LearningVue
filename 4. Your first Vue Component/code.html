@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full">
   <head>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
   </head>
-<body>
+<body class="h-full grid place-items-center">
 
 <div id="app">
-    {{ message }} {{ message.length }}
+    <app-button></app-button>
 </div>
 
 <script>
@@ -16,6 +17,13 @@
       return {
         message : "hello worl  dssd"
       }
+    },
+    components : {
+        'app-button' : {
+            mounted() {
+                alert('hello')
+            }
+        }
     }
   }
 
