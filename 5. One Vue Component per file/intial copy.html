@@ -8,15 +8,18 @@
 <body class="h-full grid place-items-center">
 
 <div id="app">
-    {{ message }} {{ message.length }}
+    <app-button> hehe</app-button>
 </div>
 
-<script>
+<script type="module">
+  import AppButton from "./js/components/AppButton.js"
   let app = {
     data() {
       return {
         message : "hello worl  dssd"
       }
+    }, components : {
+      'app-button' : AppButton
     }
   }
 
