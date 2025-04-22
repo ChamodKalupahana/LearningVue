@@ -2,7 +2,7 @@
 <html>
   <head>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <style>
+     <style>
       html, body {
         height: 100%;
       }
@@ -25,7 +25,7 @@
 
 <div id="app">
 
-    <button v-bind:class="buttonClasses"> Click me </button>
+    <button :class="buttonClasses" v-on:click="toggle"> Click me </button>
 </div>
 
 <script>
@@ -34,7 +34,13 @@
   createApp({
     data() {
       return {
-        buttonClasses : 'text-green'
+        buttonClasses : 'text-green',
+        active : false
+      }
+    },
+    methods : {
+      toggle() {
+        this.buttonClasses = 'text-red'
       }
     }
   }).mount('#app')
