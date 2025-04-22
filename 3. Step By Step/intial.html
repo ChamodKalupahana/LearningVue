@@ -11,24 +11,29 @@
     <h2 class="font-bold mb-2"> Assignments </h2>
 
     <ul>
-      <li> Finish project</li>
-      <li> Read chapter 4</li>
-      <li> turn in homework</li>
+      <li> Finish project <input type="checkbox"> </li>
+      <li> Read chapter 4 <input type="checkbox"> </li>
+      <li> turn in homework <input type="checkbox"> </li>
     </ul>
   </section>
 </div>
 
 <script>
-  const { createApp, ref } = Vue
 
-  createApp({
-    setup() {
-      const message = ref('Hello chamod!')
+  let app = {
+    data() {
       return {
-        message
+        assignments : [
+          {name : 'Finish project', complete : false},
+          {name : 'Read chapter 4', complete : false},
+          {name : 'turn in homework', complete : false},
+        ]
       }
     }
-  }).mount('#app')
+  }
+
+  Vue.createApp(app).mount('#app')
+
 </script>
 
 </body>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  </head>
+<body>
+
+<div id="app">
+    {{ message }} {{ message.length }}
+</div>
+
+<script>
+  let app = {
+    data() {
+      return {
+        message : "hello worl  dssd"
+      }
+    }
+  }
+
+  Vue.createApp(app).mount('#app')
+</script>
+
+</body>
+</html>
