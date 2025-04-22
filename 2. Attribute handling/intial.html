@@ -25,7 +25,7 @@
 
 <div id="app">
 
-    <button :class="buttonClasses" v-on:click="toggle"> Click me </button>
+    <button :class="active ? 'text-red' : 'text-green' " @click="toggle"> Click me </button>
 </div>
 
 <script>
@@ -40,7 +40,8 @@
     },
     methods : {
       toggle() {
-        this.buttonClasses = 'text-red'
+        // this.buttonClasses = 'text-red'
+        this.active = ! this.active
       }
     }
   }).mount('#app')
