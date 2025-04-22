@@ -28,12 +28,12 @@
     </pre> -->
   </section>
 
-  <section v-show="assignments.filter(a => a.complete).length" class="mt-10">
+  <section v-show="completedAssignments" class="mt-10">
     <h2 class="font-bold mb-2"> Completed Assignments </h2>
 
     <ul>
       <li 
-      v-for="assignment in assignments.filter(a => a.complete)" 
+      v-for="assignment in completedAssignments" 
       :key="assignment.id"> 
         <label>
           {{ assignment.name}}
@@ -62,6 +62,11 @@
     methods : {
       toggle() {
         this.complete = ! this.complete
+      }
+    },
+    computed : {
+      completedAssignments() {
+        return this.assignments.filter(assignment => assignment.complete);
       }
     }
   }
