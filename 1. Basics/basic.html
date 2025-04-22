@@ -4,17 +4,29 @@
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-<div id="app">{{ message }}</div>
+<div id="app">
+    <p> 
+        <input type="text" v-model="message">
+    </p>
+
+    {{ message }} {{ message.length }}
+    
+</div>
+
+
 
 <script>
   const { createApp, ref } = Vue
 
   createApp({
     setup() {
-      const message = ref('Hello vue!')
+      const message = ref('Hello chamod !')
       return {
         message
       }
+    },
+    mounted() {
+        alert("vue is mounted")
     }
   }).mount('#app')
 </script>
