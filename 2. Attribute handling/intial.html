@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <head>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      html, body {
+        height: 100%;
+      }
 
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+      body {
+        display: grid;
+        place-items: center;
+      }
+
+       
+    </style>
+  </head>
+<body>
 
 <div id="app">
     {{ message }} {{ message.length }}
-    
+
+    <button> Click me </button>
 </div>
 
 <script>
