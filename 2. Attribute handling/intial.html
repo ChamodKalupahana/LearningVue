@@ -24,19 +24,17 @@
 <body>
 
 <div id="app">
-    {{ message }} {{ message.length }}
 
-    <button class="text-green"> Click me </button>
+    <button v-bind:class="buttonClasses"> Click me </button>
 </div>
 
 <script>
   const { createApp, ref } = Vue
 
   createApp({
-    setup() {
-      const message = ref('Hello chamod!')
+    data() {
       return {
-        message
+        buttonClasses : 'text-green'
       }
     }
   }).mount('#app')
