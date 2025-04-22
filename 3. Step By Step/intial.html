@@ -7,11 +7,11 @@
 <body class="h-full grid place-items-center"> 
 
 <div id="app">
-  <section>
+   <section>
     <h2 class="font-bold mb-2"> In Progress Assignments </h2>
 
     <ul>
-      <li v-for="assignment in assignments"> 
+      <li v-for="assignment in assignments.filter(a => ! a.complete)" :key="assignment.id"> 
         <label>
           {{ assignment.name}}
           
@@ -30,7 +30,7 @@
     <h2 class="font-bold mb-2"> Completed Assignments </h2>
 
     <ul>
-      <li v-for="assignment in assignments"> 
+      <li v-for="assignment in assignments.filter(a => a.complete)" :key="assignment.id"> 
         <label>
           {{ assignment.name}}
           
@@ -49,9 +49,9 @@
     data() {
       return {
         assignments : [
-          {name : 'Finish project', complete : false},
-          {name : 'Read chapter 4', complete : false},
-          {name : 'turn in homework', complete : false},
+          {name : 'Finish project', complete : false, id: 1},
+          {name : 'Read chapter 4', complete : false, id: 2},
+          {name : 'turn in homework', complete : false, id : 3},
         ]
       }
     },
