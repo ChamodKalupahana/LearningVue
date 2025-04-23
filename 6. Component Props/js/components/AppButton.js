@@ -8,5 +8,11 @@ export default {
       return {
         processing: true
       };
+    },
+    props : {
+      type : {
+        type : String,
+        default : "primary"
+      }
     }
   };  
