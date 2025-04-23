@@ -5,8 +5,8 @@ export default {
 
     template : `
     <section class="space-y-6">
-    <AssignmentList :assignments="inProgress" title="In Progress Assignments"></AssignmentList>
-    <AssignmentList :assignments="completed" title="Completed Assignments"></AssignmentList>
+    <AssignmentList :assignments="filters.inProgress" title="In Progress Assignments"></AssignmentList>
+    <AssignmentList :assignments="filters.completed" title="Completed Assignments"></AssignmentList>
     </section>
     `,
     data() {
@@ -24,11 +24,11 @@ export default {
         }
       },
       computed : {
-        completed() {
-          return this.assignments.filter(assignment => assignment.complete);
-        },
-        inProgress() {
-          return this.assignments.filter(assignment => ! assignment.complete);
+        filters() {
+            return {
+                inProgress : this.assignments.filter(assignment => assignment.complete),
+                completed : this.assignments.filter(assignment => ! assignment.complete)
+            }
         }
       }
 }
