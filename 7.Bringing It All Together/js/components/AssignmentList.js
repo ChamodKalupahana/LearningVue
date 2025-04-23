@@ -2,12 +2,12 @@ import Assignments from "./Assignments";
 
 export default {
     template : `
-    <section v-show="InProgressAssignments.length">
-    <h2 class="font-bold mb-2"> In Progress Assignments </h2>
+    <section v-show="assignments.length">
+    <h2 class="font-bold mb-2"> {{ title }} </h2>
 
     <ul>
       <li 
-      v-for="assignment in InProgressAssignments" 
+      v-for="assignment in assignments" 
       :key="assignment.id"> 
         <label>
           {{ assignment.name}}
