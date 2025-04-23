@@ -1,4 +1,4 @@
-import AppButton from "./js/components/AppButton.js"
+import AppButton from "./AppButton.js"
 
 export default {
     data() {
