@@ -4,9 +4,10 @@ export default {
     components : { AssignmentList }, 
 
     template : `
-    <AssignmentList :assignments="InProgressAssignments" title="In Progress Assignments"></AssignmentList>
-    <AssignmentList :assignments="completedAssignments" title="Completed Assignments"></AssignmentList>
-
+    <section class="space-y-6">
+    <AssignmentList :assignments="inProgress" title="In Progress Assignments"></AssignmentList>
+    <AssignmentList :assignments="completed" title="Completed Assignments"></AssignmentList>
+    </section>
     `,
     data() {
         return {
@@ -23,10 +24,10 @@ export default {
         }
       },
       computed : {
-        completedAssignments() {
+        completed() {
           return this.assignments.filter(assignment => assignment.complete);
         },
-        InProgressAssignments() {
+        inProgress() {
           return this.assignments.filter(assignment => ! assignment.complete);
         }
       }
