@@ -9,7 +9,9 @@ export default {
 
     <Assignment 
     v-for="assignment in assignments" 
-    :key="assignment.id">
+    :key="assignment.id"
+    :assignment="assignment"
+    >
     </Assignment>
 
   </section>
