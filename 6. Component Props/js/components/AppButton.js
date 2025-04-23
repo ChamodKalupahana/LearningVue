@@ -5,7 +5,8 @@ export default {
         'border rounded px-5 py-2 disabled:cursor-not-allowed': true,
         'bg-blue-200 hover:bg-gray-400' : type === 'primary',
         'bg-purple-200 hover:bg-gray-400' : type === 'secondary',
-        'bg-gray-200 hover:bg-gray-400' : type === 'muted'
+        'bg-gray-200 hover:bg-gray-400' : type === 'muted',
+        'is-loading' : processing
       }"
       :disabled="processing"
       > 
