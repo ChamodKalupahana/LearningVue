@@ -3,44 +3,79 @@
   <head>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      @keyframes spinner {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
-      .is-loading {
-        color: transparent;
-      }
-      
-      .is-loading::before {
-        content: "";
-        box-sizing: border-box;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 24px;
-        height: 24px;
-        margin-top: -12px;
-        margin-left: -12px;
-        border-radius: 50%;
-        border: 2px solid #ccc;
-        border-top-color: #000;
-        animation: spinner 600ms linear infinite;
-      }
-    </style>
   </head>
-<body class="h-full grid place-items-center">
+<body class="h-full grid place-items-center"> 
 
 <div id="app">
-    <app-button :processing="false"> hehe</app-button>
+   <section v-show="InProgressAssignments.length">
+    <h2 class="font-bold mb-2"> In Progress Assignments </h2>
+
+    <ul>
+      <li 
+      v-for="assignment in InProgressAssignments" 
+      :key="assignment.id"> 
+        <label>
+          {{ assignment.name}}
+          
+          <input type="checkbox" v-model="assignment.complete">
+        </label>
+      </li>
+    </ul>
+
+    <!-- <pre>
+      {{assignments}}
+
+    </pre> -->
+  </section>
+
+  <section v-show="completedAssignments.length" class="mt-10">
+    <h2 class="font-bold mb-2"> Completed Assignments </h2>
+
+    <ul>
+      <li 
+      v-for="assignment in completedAssignments" 
+      :key="assignment.id"> 
+        <label>
+          {{ assignment.name}}
+          
+          <input type="checkbox" v-model="assignment.complete">
+        </label>
+      </li>
+    </ul>
+
+
+  </section>
 </div>
 
-<script type="module">
-  import App from "./js/components/App.js"
+<script>
 
-  Vue.createApp(App).mount('#app')
+  let app = {
+    data() {
+      return {
+        assignments : [
+          {name : 'Finish project', complete : false, id: 1},
+          {name : 'Read chapter 4', complete : false, id: 2},
+          {name : 'turn in homework', complete : false, id : 3},
+        ]
+      }
+    },
+    methods : {
+      toggle() {
+        this.complete = ! this.complete
+      }
+    },
+    computed : {
+      completedAssignments() {
+        return this.assignments.filter(assignment => assignment.complete);
+      },
+      InProgressAssignments() {
+        return this.assignments.filter(assignment => ! assignment.complete);
+      }
+    }
+  }
+
+  Vue.createApp(app).mount('#app')
+
 </script>
 
 </body>
