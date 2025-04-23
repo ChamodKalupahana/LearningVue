@@ -1,4 +1,8 @@
+import AssignmentList from "./AssignmentList.js";
+
 export default {
+    components : { AssignmentList }, 
+    
     template : `
           <section v-show="InProgressAssignments.length">
     <h2 class="font-bold mb-2"> In Progress Assignments </h2>
