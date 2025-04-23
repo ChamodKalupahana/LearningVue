@@ -1,4 +1,4 @@
-import Assignments from "./Assignments";
+import Assignments from "./Assignments.js";
 
 export default {
     template : `
