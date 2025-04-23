@@ -12,15 +12,14 @@ export default {
         <slot></slot>
       </button>
     `,
-    data() {
-      return {
-        processing: true
-      };
-    },
     props : {
       type : {
         type : String,
         default : "primary"
+      },
+      processing : {
+        type : Boolean,
+        default : false
       }
     }
   };  
